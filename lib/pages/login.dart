@@ -1,6 +1,6 @@
 import 'package:Footprints/main.dart';
 import 'package:Footprints/models/customButtons.dart';
-import 'package:Footprints/main.dart';
+
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {

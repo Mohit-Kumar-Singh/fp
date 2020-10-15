@@ -4,6 +4,8 @@ import 'package:Footprints/pages/home/team.dart';
 import 'package:flutter/material.dart';
 import 'package:Footprints/pages/login.dart';
 import 'package:Footprints/models/customButtons.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:fancy_drawer/fancy_drawer.dart';
 
@@ -72,6 +74,14 @@ class _HomeScreenState extends State<HomeScreen>
     super.dispose();
   }
 
+  _launchUrl(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   Color bgred = Color.fromRGBO(231, 137, 135, 1);
 
   Color bg = Color.fromRGBO(182, 207, 203, 1);
@@ -91,38 +101,45 @@ class _HomeScreenState extends State<HomeScreen>
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        page(5);
-                      },
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage('images/fp.png'),
+                GestureDetector(
+                  onTap: () => _launchUrl(
+                      'https://instagram.com/kaleidoscope.fp?igshid=1wngcg0l54h0q'),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Footprints',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
+                      GestureDetector(
+                        onTap: () {
+                          page(5);
+                        },
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage('images/fp.png'),
+                          radius: 22,
                         ),
-                        Text('@akgec',
-                            style: TextStyle(
-                              color: Colors.black,
-                            )),
-                      ],
-                    )
-                  ],
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Footprints',
+                            style: GoogleFonts.ebGaramond(
+                                color: Colors.black, fontSize: 22),
+                          ),
+                          // Divider(
+                          //   color: Colors.black,
+                          // ),
+                          // Text('akgec',
+                          //     style: TextStyle(
+                          //       color: Colors.black,
+                          //     )),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
                 Spacer(),
                 Column(
@@ -168,7 +185,7 @@ class _HomeScreenState extends State<HomeScreen>
                         children: [
                           Icon(
                             Icons.settings,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                           SizedBox(
                             width: 10,
@@ -176,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen>
                           Text(
                             'settings',
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontWeight: FontWeight.bold),
                           )
                         ],
@@ -188,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen>
                     Container(
                       width: 2,
                       height: 20,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     SizedBox(
                       width: 10,
@@ -196,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen>
                     Text(
                       'Log out',
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     )
                   ],
                 )

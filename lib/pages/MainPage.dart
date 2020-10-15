@@ -18,8 +18,10 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.blueGrey[100],
         bottomNavigationBar: SnakeNavigationBar(
+          // backgroundColor: Colors.transparent,
           padding: EdgeInsets.all(12).copyWith(),
           style: SnakeBarStyle.floating,
           shape: RoundedRectangleBorder(
