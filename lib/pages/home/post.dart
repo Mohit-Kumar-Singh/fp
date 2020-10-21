@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Footprints/models/postContainer.dart';
+import 'package:Footprints/models/Container.dart';
 
 class Post extends StatefulWidget {
   @override

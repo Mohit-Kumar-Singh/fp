@@ -77,6 +77,66 @@ Widget postContainer(
   );
 }
 
+Widget eventContainer(
+    {@required BuildContext ctx,
+    @required String image,
+    @required String title,
+    String captions = 'captions',
+    String rules = "rules",
+    String url}) {
+  return Padding(
+    padding: const EdgeInsets.all(20.0),
+    child: GestureDetector(
+      child: PhysicalModel(
+        shadowColor: Colors.black,
+        color: Colors.blueGrey,
+        elevation: 8,
+        child: Image.asset(
+          '$image',
+        ),
+      ),
+      onTap: () {
+        showDialog(
+          context: ctx,
+          builder: (context) => SimpleDialog(
+            title: Text("$title",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.ebGaramond(
+                    color: Colors.black,
+                    fontSize: 35,
+                    fontWeight: FontWeight.w300)),
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * .68,
+                child: Column(
+                  children: [
+                    Divider(
+                      indent: 10,
+                      endIndent: 10,
+                    ),
+                    Text('$captions'),
+                    Text('$rules'),
+                    Spacer(),
+                    Divider(
+                      indent: 10,
+                      endIndent: 10,
+                    ),
+                    FlatButton(
+                        onPressed: () {
+                          _launchUrl("$url");
+                        },
+                        child: Text('Register'))
+                  ],
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    ),
+  );
+}
+
 Widget profileContainer({
   @required String name,
   @required String domain,

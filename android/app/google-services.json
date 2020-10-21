@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "627905012640",
+    "firebase_url": "https://footprints-aa626.firebaseio.com",
+    "project_id": "footprints-aa626",
+    "storage_bucket": "footprints-aa626.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627905012640:android:e01028ea5ed284a7de7ac5",
+        "android_client_info": {
+          "package_name": "com.Team_Footprints_App"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "627905012640-ju6hqfhi762ipfbk1ha5ri21h1pfu90r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs9-rXemVu6QYCDJKUW2Df8x0CCB_So9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "627905012640-ju6hqfhi762ipfbk1ha5ri21h1pfu90r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

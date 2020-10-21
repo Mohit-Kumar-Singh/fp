@@ -1,6 +1,5 @@
 import 'package:Footprints/models/postContainer.dart';
 import 'package:flutter/material.dart';
-import 'package:Footprints/models/customButtons.dart';
 
 class Team extends StatelessWidget {
   @override
@@ -89,7 +88,7 @@ class Team extends StatelessWidget {
                       "https://instagram.com/mohit_kumar_singh?igshid=1062al15bzcdn"),
               profileContainer(
                   name: 'Rifa Fatima',
-                  domain: 'Litrati',
+                  domain: 'Literati',
                   image: 'images/rifa.png',
                   url: "https://instagram.com/rifatimaa?igshid=1wqep8fz0pv31"),
               profileContainer(
