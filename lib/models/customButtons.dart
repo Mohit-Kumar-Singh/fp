@@ -4,10 +4,18 @@ Widget customButton(String title, IconData icon, Function ontap) {
   return GestureDetector(
     onTap: ontap,
     child: Container(
-      width: 200,
+      width: 230,
       margin: EdgeInsets.only(right: 8, bottom: 8),
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.blueGrey[200],
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
           color: Colors.white,
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(20), bottomRight: Radius.circular(20))),

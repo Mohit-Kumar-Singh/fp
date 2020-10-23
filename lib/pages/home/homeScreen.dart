@@ -1,3 +1,5 @@
+import 'package:Footprints/pages/aboutus.dart';
+import 'package:Footprints/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:Footprints/pages/home/MainPage.dart';
 import 'package:Footprints/pages/home/post.dart';
@@ -93,14 +95,9 @@ class _HomeScreenState extends State<HomeScreen>
                       SizedBox(
                         width: 10,
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          page(5);
-                        },
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage('images/fp.png'),
-                          radius: 22,
-                        ),
+                      CircleAvatar(
+                        backgroundImage: AssetImage('images/fp.png'),
+                        radius: 22,
                       ),
                       SizedBox(
                         width: 10,
@@ -113,13 +110,6 @@ class _HomeScreenState extends State<HomeScreen>
                             style: GoogleFonts.ebGaramond(
                                 color: Colors.black, fontSize: 22),
                           ),
-                          // Divider(
-                          //   color: Colors.black,
-                          // ),
-                          // Text('akgec',
-                          //     style: TextStyle(
-                          //       color: Colors.black,
-                          //     )),
                         ],
                       )
                     ],
@@ -144,14 +134,17 @@ class _HomeScreenState extends State<HomeScreen>
                       },
                     ),
                     customButton('ABOUT US', Icons.person_outline, () {
-                      page(1);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => AboutUs()));
                     }),
-                    // customButton('', Icons.bookmark_border, () {
-                    //   page(0);
-                    // }),
+                    customButton("NOTIFICATION", Icons.notifications, () {}),
+                    customButton("HELP", Icons.help, () {}),
+                    customButton("INVITE", Icons.people, () {})
                   ],
                 ),
-                Spacer(),
+                Spacer(
+                    //  flex: 4,
+                    ),
                 Row(
                   children: [
                     SizedBox(
@@ -165,22 +158,25 @@ class _HomeScreenState extends State<HomeScreen>
                           isdraweropen = true;
                         });
                       },
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.settings,
-                            color: Colors.black,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            'settings',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          )
-                        ],
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.settings,
+                              color: Colors.black,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'settings',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(

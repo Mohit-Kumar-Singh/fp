@@ -1,4 +1,4 @@
-import 'package:Footprints/models/postContainer.dart';
+import 'package:Footprints/models/Container.dart';
 import 'package:flutter/material.dart';
 
 class Team extends StatelessWidget {
@@ -23,57 +23,6 @@ class Team extends StatelessWidget {
             ),
           ),
         ),
-        // Container(
-        //   margin: EdgeInsets.all(3),
-        //   decoration: BoxDecoration(
-        //     color: Colors.white,
-        //     borderRadius: BorderRadius.circular(22),
-
-        //   ),
-        //   child: Container(
-        //     padding: EdgeInsets.only(top: 10, bottom: 20),
-        //     margin: EdgeInsets.all(2),
-        //     decoration: BoxDecoration(
-        //       color: Colors.white,
-        //       border: Border.all(color: Colors.blueGrey[200], width: 1),
-        //       borderRadius: BorderRadius.circular(20),
-        //     ),
-        //     width: 160,
-        //     height: 230,
-        //     child: Column(
-        //       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //       children: [
-        //         circleAvatar(image: 'images/15.jpg', radius: 45),
-        //         Spacer(),
-        //         Text(
-        //           'Mohit Kumar Singh',
-        //         ),
-        //         Text(
-        //           'Artist',
-        //           // style: TextStyle(
-        //           //     color: Colors.black,
-        //           //     fontWeight: FontWeight.bold)
-        //         ),
-        //         Spacer(),
-        //         GestureDetector(
-        //           child: Container(
-        //             alignment: Alignment.center,
-        //             height: 30,
-        //             width: 130,
-        //             child: Text(
-        //               'View Profile',
-        //               style: TextStyle(color: Colors.white),
-        //             ),
-        //             decoration: BoxDecoration(
-        //                 borderRadius: BorderRadius.circular(6),
-        //                 color: Colors.blueGrey[800]),
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
-
         Container(
           height: 240,
           child: ListView(

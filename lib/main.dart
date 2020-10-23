@@ -3,6 +3,7 @@ import 'package:Footprints/services/auth.dart';
 import 'package:Footprints/wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:video_player/video_player.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,247 +24,85 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// class HomeScreen extends StatefulWidget {
-//   @override
-//   _HomeScreenState createState() => _HomeScreenState();
+// void main() {
+//   runApp(Home());
 // }
 
-// class _HomeScreenState extends State<HomeScreen>
-//     with SingleTickerProviderStateMixin {
-//   FancyDrawerController _controller;
-//   Widget showpage = MainPage();
-//   DrawerState state = DrawerState.closed;
-//   bool isdraweropen = true;
-
-//   void page(int i) {
-//     setState(() {
-//       if (i == 0) {
-//         _controller.close();
-//         isdraweropen = true;
-//         showpage = MainPage();
-//       }
-//       if (i == 1) {
-//         _controller.close();
-//         isdraweropen = true;
-//         showpage = Team();
-//       }
-
-//       if (i == 2) {
-//         _controller.close();
-//         isdraweropen = true;
-//         showpage = Post();
-//       }
-//     });
+// class Home extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Video Example',
+//       home: VideoExample(),
+//     );
 //   }
+// }
+
+// class VideoExample extends StatefulWidget {
+//   @override
+//   VideoState createState() => VideoState();
+// }
+
+// class VideoState extends State<VideoExample> {
+//   VideoPlayerController playerController;
+//   VoidCallback listener;
 
 //   @override
 //   void initState() {
 //     super.initState();
-//     _controller = FancyDrawerController(
-//         vsync: this, duration: Duration(milliseconds: 250))
-//       ..addListener(() {
-//         setState(() {});
-//       });
+//     listener = () {
+//       setState(() {});
+//     };
 //   }
 
-//   @override
-//   void dispose() {
-//     _controller.dispose();
-//     super.dispose();
-//   }
-
-//   _launchUrl(String url) async {
-//     if (await canLaunch(url)) {
-//       await launch(url);
+//   void createVideo() {
+//     if (playerController == null) {
+//       playerController = VideoPlayerController.asset("images/fplogo.mp4")
+//         //network(
+//         //  "https://r3---sn-vgqsknez.googlevideo.com/videoplayback?source=youtube&mime=video%2Fmp4&itag=22&key=cms1&requiressl=yes&beids=%5B9466592%5D&ratebypass=yes&fexp=9466586,23724337&ei=g3jiWvfCL4O_8wScopaICA&signature=43C209DD37289D74DB39A9BBF7BC442EAC049426.14B818F50F4FA686C13AF5DD1C2A498A9D64ECC9&fvip=3&pl=16&sparams=dur,ei,expire,id,initcwndbps,ip,ipbits,ipbypass,itag,lmt,mime,mip,mm,mn,ms,mv,pl,ratebypass,requiressl,source&ip=54.163.50.118&lmt=1524616041346022&expire=1524813027&ipbits=0&dur=1324.768&id=o-AJvotKVxbyFDCz5LQ1HWQ8TvNoHXWb2-86a_50k3EV0f&rm=sn-p5qyz7s&req_id=e462183e4575a3ee&ipbypass=yes&mip=96.244.254.218&redirect_counter=2&cm2rm=sn-p5qe7l7s&cms_redirect=yes&mm=34&mn=sn-vgqsknez&ms=ltu&mt=1524791367&mv=m")
+//         ..addListener(listener)
+//         ..setVolume(1.0)
+//         ..initialize()
+//         ..play();
 //     } else {
-//       throw 'Could not launch $url';
+//       if (playerController.value.isPlaying) {
+//         playerController.pause();
+//       } else {
+//         playerController.initialize();
+//         playerController.play();
+//       }
 //     }
 //   }
 
-//   Color bgred = Color.fromRGBO(231, 137, 135, 1);
-
-//   Color bg = Color.fromRGBO(182, 207, 203, 1);
+//   @override
+//   void deactivate() {
+//     playerController.setVolume(0.0);
+//     playerController.removeListener(listener);
+//     super.deactivate();
+//   }
 
 //   @override
 //   Widget build(BuildContext context) {
-//     return Material(
-//       child: FancyDrawerWrapper(
-//         itemGap: 00,
-//         cornerRadius: 40,
-//         backgroundColor: bg,
-//         controller: _controller,
-//         drawerItems: <Widget>[
-//           Container(
-//             height: MediaQuery.of(context).size.height * 0.9,
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.spaceAround,
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 GestureDetector(
-//                   onTap: () => _launchUrl(
-//                       'https://instagram.com/kaleidoscope.fp?igshid=1wngcg0l54h0q'),
-//                   child: Row(
-//                     children: [
-//                       SizedBox(
-//                         width: 10,
-//                       ),
-//                       GestureDetector(
-//                         onTap: () {
-//                           page(5);
-//                         },
-//                         child: CircleAvatar(
-//                           backgroundImage: AssetImage('images/fp.png'),
-//                           radius: 22,
-//                         ),
-//                       ),
-//                       SizedBox(
-//                         width: 10,
-//                       ),
-//                       Column(
-//                         crossAxisAlignment: CrossAxisAlignment.end,
-//                         children: [
-//                           Text(
-//                             'Footprints',
-//                             style: GoogleFonts.ebGaramond(
-//                                 color: Colors.black, fontSize: 22),
-//                           ),
-//                           // Divider(
-//                           //   color: Colors.black,
-//                           // ),
-//                           // Text('akgec',
-//                           //     style: TextStyle(
-//                           //       color: Colors.black,
-//                           //     )),
-//                         ],
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Video Example'),
+//       ),
+//       body: Center(
+//           child: AspectRatio(
+//               aspectRatio: 16 / 9,
+//               child: Container(
+//                 child: (playerController != null
+//                     ? VideoPlayer(
+//                         playerController,
 //                       )
-//                     ],
-//                   ),
-//                 ),
-//                 Spacer(),
-//                 Column(
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   children: [
-//                     customButton(
-//                       'HOME',
-//                       Icons.home,
-//                       () {
-//                         page(0);
-//                       },
-//                     ),
-//                     customButton(
-//                       'SEARCH',
-//                       Icons.search,
-//                       () {
-//                         page(2);
-//                       },
-//                     ),
-//                     customButton('ABOUT US', Icons.person_outline, () {
-//                       page(1);
-//                     }),
-//                     // customButton('', Icons.bookmark_border, () {
-//                     //   page(0);
-//                     // }),
-//                   ],
-//                 ),
-//                 Spacer(),
-//                 Row(
-//                   children: [
-//                     SizedBox(
-//                       width: 10,
-//                     ),
-//                     GestureDetector(
-//                       onTap: () {
-//                         _controller.close();
-//                         page(3);
-//                         setState(() {
-//                           isdraweropen = true;
-//                         });
-//                       },
-//                       child: Row(
-//                         children: [
-//                           Icon(
-//                             Icons.settings,
-//                             color: Colors.black,
-//                           ),
-//                           SizedBox(
-//                             width: 10,
-//                           ),
-//                           Text(
-//                             'settings',
-//                             style: TextStyle(
-//                                 color: Colors.black,
-//                                 fontWeight: FontWeight.bold),
-//                           )
-//                         ],
-//                       ),
-//                     ),
-//                     SizedBox(
-//                       width: 10,
-//                     ),
-//                     Container(
-//                       width: 2,
-//                       height: 20,
-//                       color: Colors.black,
-//                     ),
-//                     SizedBox(
-//                       width: 10,
-//                     ),
-//                     Text(
-//                       'Log out',
-//                       style: TextStyle(
-//                           color: Colors.black, fontWeight: FontWeight.bold),
-//                     )
-//                   ],
-//                 )
-//               ],
-//             ),
-//           ),
-//         ],
-
-//         child: Scaffold(
-//             backgroundColor: Colors.blueGrey[100],
-//             appBar: AppBar(
-//               shadowColor: Colors.transparent,
-//               elevation: 0,
-//               title: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   isdraweropen
-//                       ? IconButton(
-//                           onPressed: () {
-//                             setState(() {
-//                               isdraweropen = false;
-//                               _controller.open();
-//                             });
-//                           },
-//                           icon: Icon(
-//                             Icons.menu,
-//                             color: Colors.black,
-//                           ),
-//                         )
-//                       : IconButton(
-//                           onPressed: () {
-//                             setState(() {
-//                               isdraweropen = true;
-//                               _controller.close();
-//                             });
-//                           },
-//                           icon: Icon(
-//                             Icons.arrow_back_ios,
-//                             color: Colors.black,
-//                           ),
-//                         ),
-//                   Text(
-//                     "Footprints",
-//                     style: TextStyle(
-//                         color: Colors.black, fontWeight: FontWeight.w300),
-//                   ),
-//                 ],
-//               ),
-//               backgroundColor: Colors.transparent,
-//             ),
-//             body: showpage),
-//         // ),
+//                     : Container()),
+//               ))),
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: () {
+//           createVideo();
+//           playerController.play();
+//         },
+//         child: Icon(Icons.play_arrow),
 //       ),
 //     );
 //   }

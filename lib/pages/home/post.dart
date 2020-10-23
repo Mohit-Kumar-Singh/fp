@@ -10,46 +10,6 @@ class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
     return ListView(physics: BouncingScrollPhysics(), children: [
-      // Container(
-      //   height: MediaQuery.of(context).size.height * .78,
-      //   margin: EdgeInsets.all(10),
-      //   padding: EdgeInsets.all(15),
-      //   decoration: BoxDecoration(
-      //       color: Colors.white,
-      //       borderRadius: BorderRadius.all(Radius.circular(20))),
-      //   child: Column(
-      //     children: [
-      //       Image.asset('images/h.jpg'),
-      //       SizedBox(
-      //         height: 4,
-      //       ),
-      //       Spacer(),
-      //       Text(
-      //         'jj',
-      //         textAlign: TextAlign.center,
-      //       ),
-      //       Spacer(),
-      //       Divider(),
-      //       Spacer(),
-      //       Row(
-      //         mainAxisAlignment: MainAxisAlignment.end,
-      //         children: [
-      //           Text('Created by ~'),
-      //           GestureDetector(
-      //             onTap: () {},
-      //             child: Text(
-      //               '@Shashank_Garg',
-      //               style: TextStyle(
-      //                   // color: Theme.of(context).primaryColor,
-      //                   fontStyle: FontStyle.italic,
-      //                   decoration: TextDecoration.underline),
-      //             ),
-      //           ),
-      //         ],
-      //       )
-      //     ],
-      //   ),
-      // ),
       postContainer(
         ctx: context,
         image: 'images/h.jpg',

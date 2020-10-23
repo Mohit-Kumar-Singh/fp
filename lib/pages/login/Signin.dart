@@ -177,8 +177,6 @@ class _SigninState extends State<Signin> {
                           elevation: 0,
                           color: Colors.transparent,
                           onPressed: () async {
-                            // Navigator.pushReplacement(context,
-                            //   MaterialPageRoute(builder: (_) => HomeScreen()));
                             if (formKey.currentState.validate()) {
                               setState(() => loading = true);
                               dynamic result =
