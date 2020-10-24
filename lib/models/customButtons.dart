@@ -44,6 +44,7 @@ Widget circleAvatar({@required String image, @required double radius}) {
           width: 2,
         )),
     child: CircleAvatar(
+      // backgroundColor: Colors.transparent,
       radius: radius,
       backgroundImage: AssetImage('$image'),
     ),

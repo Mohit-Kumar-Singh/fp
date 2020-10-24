@@ -1,5 +1,5 @@
 import 'package:Footprints/pages/aboutus.dart';
-import 'package:Footprints/pages/settings.dart';
+
 import 'package:flutter/material.dart';
 import 'package:Footprints/pages/home/MainPage.dart';
 import 'package:Footprints/pages/home/post.dart';
@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fancy_drawer/fancy_drawer.dart';
 import 'package:Footprints/services/auth.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -97,18 +98,23 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                       CircleAvatar(
                         backgroundImage: AssetImage('images/fp.png'),
-                        radius: 22,
+                        radius: 24,
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Footprints',
                             style: GoogleFonts.ebGaramond(
                                 color: Colors.black, fontSize: 22),
+                          ),
+                          Text(
+                            'REDEFINING CREATIVITY',
+                            style: GoogleFonts.ebGaramond(
+                                color: Colors.black, fontSize: 14),
                           ),
                         ],
                       )
@@ -133,12 +139,12 @@ class _HomeScreenState extends State<HomeScreen>
                         page(2);
                       },
                     ),
+                    customButton("PARTICIPATE", Icons.person_add, () {}),
+                    //    customButton("NOTIFICATION", Icons.notifications, () {}),
                     customButton('ABOUT US', Icons.person_outline, () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (_) => AboutUs()));
                     }),
-                    customButton("NOTIFICATION", Icons.notifications, () {}),
-                    customButton("HELP", Icons.help, () {}),
                     customButton("INVITE", Icons.people, () {})
                   ],
                 ),
@@ -147,46 +153,45 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                 Row(
                   children: [
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     _controller.close();
+                    //     page(3);
+                    //     setState(() {
+                    //       isdraweropen = true;
+                    //     });
+                    //   },
+                    // child:
+                    // GestureDetector(
+                    //   onTap: () {},
+                    // child: Row(
+                    //   children: [
+                    //     Icon(
+                    //       Icons.settings,
+                    //       color: Colors.black,
+                    //     ),
+                    //     SizedBox(
+                    //       width: 10,
+                    //     ),
+                    //     Text(
+                    //       'settings',
+                    //       style: TextStyle(
+                    //           color: Colors.black,
+                    //           fontWeight: FontWeight.bold),
+                    //     )
+                    //   ],
+                    // ),
+                    //   ),
+                    //  ),
                     SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        _controller.close();
-                        page(3);
-                        setState(() {
-                          isdraweropen = true;
-                        });
-                      },
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.settings,
-                              color: Colors.black,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'settings',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
+                      width: 20,
                     ),
                     Container(
                       width: 2,
                       height: 20,
                       color: Colors.black,
                     ),
+                    // Icon(MdiIcons.login, color: Colors.black87),
                     SizedBox(
                       width: 10,
                     ),
@@ -196,8 +201,10 @@ class _HomeScreenState extends State<HomeScreen>
                       },
                       child: Text(
                         'Log out',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.ebGaramond(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
                       ),
                     )
                   ],

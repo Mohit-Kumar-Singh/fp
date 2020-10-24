@@ -3,7 +3,7 @@ import 'package:Footprints/services/auth.dart';
 import 'package:Footprints/wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:video_player/video_player.dart';
+//import 'package:video_player/video_player.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,9 +14,12 @@ class MyApp extends StatelessWidget {
       value: AuthServices().user,
       child: MaterialApp(
         //  title: 'FOOTPRINTS',
-//       theme: ThemeData(
-//           primarySwatch:  Color.fromRGBO(182, 207, 203, 1),
-//  , primaryColor: Colors.blueGrey[800]),
+        theme: ThemeData(
+            primarySwatch: Colors.blueGrey,
+            // primaryColorDark: Colors.black,
+            // primaryColorLight: Colors.red,
+            // primarySwatch:  Color.fromRGBO(182, 207, 203, 1),
+            primaryColor: Colors.blueGrey[800]),
         home: Wrapper(),
         debugShowCheckedModeBanner: false,
       ),
