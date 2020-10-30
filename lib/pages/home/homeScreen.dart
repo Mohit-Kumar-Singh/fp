@@ -6,6 +6,7 @@ import 'package:Footprints/pages/home/post.dart';
 import 'package:Footprints/pages/home/team.dart';
 import 'package:Footprints/models/customButtons.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fancy_drawer/fancy_drawer.dart';
 import 'package:Footprints/services/auth.dart';
@@ -22,6 +23,8 @@ class _HomeScreenState extends State<HomeScreen>
   Widget showpage = MainPage();
   DrawerState state = DrawerState.closed;
   bool isdraweropen = true;
+  bool animated = true;
+  bool lAnimated = true;
 
   void page(int i) {
     setState(() {
@@ -145,53 +148,26 @@ class _HomeScreenState extends State<HomeScreen>
                       Navigator.push(context,
                           MaterialPageRoute(builder: (_) => AboutUs()));
                     }),
-                    customButton("INVITE", Icons.people, () {})
+                    customButton("INVITE", Icons.people, () {
+                      Share.share(
+                          'check out our website https://footprintsmedia.in/',
+                          subject: 'Sharing on Email');
+                    }),
+                    // customButton(
+                    //   'LOGOUT',
+                    //   MdiIcons.logout,
+                    //   () async {
+                    //     await _auth.signOut();
+                    //   },
+                    // )
                   ],
                 ),
                 Spacer(
                     //  flex: 4,
                     ),
                 Row(
+                  // mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    // GestureDetector(
-                    //   onTap: () {
-                    //     _controller.close();
-                    //     page(3);
-                    //     setState(() {
-                    //       isdraweropen = true;
-                    //     });
-                    //   },
-                    // child:
-                    // GestureDetector(
-                    //   onTap: () {},
-                    // child: Row(
-                    //   children: [
-                    //     Icon(
-                    //       Icons.settings,
-                    //       color: Colors.black,
-                    //     ),
-                    //     SizedBox(
-                    //       width: 10,
-                    //     ),
-                    //     Text(
-                    //       'settings',
-                    //       style: TextStyle(
-                    //           color: Colors.black,
-                    //           fontWeight: FontWeight.bold),
-                    //     )
-                    //   ],
-                    // ),
-                    //   ),
-                    //  ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      width: 2,
-                      height: 20,
-                      color: Colors.black,
-                    ),
-                    // Icon(MdiIcons.login, color: Colors.black87),
                     SizedBox(
                       width: 10,
                     ),
@@ -203,10 +179,82 @@ class _HomeScreenState extends State<HomeScreen>
                         'Log out',
                         style: GoogleFonts.ebGaramond(
                             color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300),
                       ),
-                    )
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      width: 1.2,
+                      height: 20,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.all(Radius.circular(200)),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+
+                    Container(
+                      height: 28,
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            animated = !animated;
+                          });
+                        },
+                        child: Row(
+                          // crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('©',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.ebGaramond(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w300,
+                                )),
+                            Text('MKS',
+                                style: animated
+                                    ? GoogleFonts.ebGaramond(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w300)
+                                    : TextStyle(fontSize: 0)),
+                            SizedBox(
+                              width: 0,
+                            ),
+                            AnimatedDefaultTextStyle(
+                              curve: Curves.easeInOutBack,
+                              child: Text(
+                                'Mohit Kumar Singh',
+                              ),
+                              style: animated
+                                  ? TextStyle(
+                                      color: Colors.transparent,
+                                      fontSize: 2,
+                                    )
+                                  : GoogleFonts.ebGaramond(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w300),
+                              duration: Duration(milliseconds: 300),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    // Text(
+                    //   '©Mohit Kumar Singh',
+                    //   style: GoogleFonts.ebGaramond(
+                    //       color: Colors.black,
+                    //       fontSize: 18,
+                    //       fontWeight: FontWeight.w300),
+                    // ),
                   ],
                 )
               ],

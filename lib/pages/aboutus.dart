@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_glow/flutter_glow.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:share/share.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,9 +15,19 @@ class AboutUs extends StatelessWidget {
     }
   }
 
+  // Future<void> share() async {
+  //   await FlutterShare.share(
+  //       title: 'Example share',
+  //       text: 'Example share text',
+  //       linkUrl: 'https://flutter.dev/',
+  //       chooserTitle: 'Example Chooser Title');
+  // }
+
   @override
   Widget build(BuildContext context) {
     Color bg = Color.fromRGBO(182, 207, 203, 1);
+    Color cyanLight = Color.fromRGBO(155, 218, 227, 1);
+    Color pink = Color.fromRGBO(241, 175, 185, 1);
     Color font = Color.fromRGBO(42, 49, 59, 1);
     return SafeArea(
         child: Scaffold(
@@ -24,12 +36,25 @@ class AboutUs extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Text('FOOTPRINS',
-            style: GoogleFonts.ebGaramond(
-                color: font,
-                //  color: Colors.black,
-                fontSize: 30,
-                fontWeight: FontWeight.w300)),
+        title: GlowText(
+          'FOOTPRINS',
+          blurRadius: 1.0,
+          offset: Offset(1, 3),
+          glowColor: cyanLight,
+          style: GoogleFonts.ebGaramond(
+              //color: font,
+              color: Colors.black,
+              fontSize: 30,
+              fontWeight: FontWeight.w300),
+          textAlign: TextAlign.center,
+        ),
+
+        // Text(
+        //     style: GoogleFonts.ebGaramond(
+        //         color: Colors.blueGrey,
+        //         //  color: Colors.black,
+        //         fontSize: 30,
+        //         fontWeight: FontWeight.w300)),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -49,24 +74,36 @@ class AboutUs extends StatelessWidget {
                   color: Colors.transparent,
                   elevation: 8,
                   child: CircleAvatar(
-                    radius: 50,
+                    radius: 60,
                     backgroundImage: AssetImage(
                       'images/fp.png',
                     ),
                   ),
                 ),
               ),
-
-              Text(
+              GlowText(
                 "“Where Imagination Breathes Freely”",
+                blurRadius: 3.0,
+                offset: Offset(1, 3),
+                glowColor: pink,
                 style: GoogleFonts.marckScript(
-                  color: font,
+                  color: Colors.black,
                   //  color: Colors.black,
-                  fontSize: 20,
+                  fontSize: 22,
                   //   color: Colors.white,
                 ),
                 textAlign: TextAlign.center,
               ),
+              // Text(
+              //   "“Where Imagination Breathes Freely”",
+              //   style: GoogleFonts.marckScript(
+              //     color: cyanLight,
+              //     //  color: Colors.black,
+              //     fontSize: 22,
+              //     //   color: Colors.white,
+              //   ),
+              //   textAlign: TextAlign.center,
+              // ),
               Divider(
                 color: font,
                 //  color: Colors.black,
@@ -79,9 +116,9 @@ class AboutUs extends StatelessWidget {
               Text(
                 'Staying true to the motto of creative explorations, Team Footprints is the creative society of the college. The society encapsulates four major domains: Arts, Literature, Photography and Designing. Being present at the helm of every cultural event in the college, Team Footprints is unarguably the backbone of the creative and cultural aspect of AKGEC.',
                 style: GoogleFonts.lato(
-                  color: font,
+                  color: Colors.black,
                   //  color: Colors.black,
-                  fontSize: 18,
+                  fontSize: 20,
                   // color: Colors.white,
                 ),
                 textAlign: TextAlign.center,
@@ -98,12 +135,24 @@ class AboutUs extends StatelessWidget {
                 indent: 20,
                 endIndent: 20,
               ),
-              Text('OUR EVENTS',
-                  style: GoogleFonts.ebGaramond(
-                      color: font,
-                      //  color: Colors.black,
-                      fontSize: 26,
-                      fontWeight: FontWeight.w300)),
+              GlowText(
+                "OUR EVENTS",
+                blurRadius: 1.0,
+                offset: Offset(1, 3),
+                glowColor: cyanLight,
+                style: GoogleFonts.ebGaramond(
+                    //color: font,
+                    color: Colors.black,
+                    fontSize: 26,
+                    fontWeight: FontWeight.w300),
+                textAlign: TextAlign.center,
+              ),
+              // Text('OUR EVENTS',
+              //     style: GoogleFonts.ebGaramond(
+              //         //color: font,
+              //         color: Colors.blueGrey,
+              //         fontSize: 26,
+              //         fontWeight: FontWeight.w300)),
               ExpansionTile(
                 childrenPadding: EdgeInsets.all(10),
                 initiallyExpanded: false,
@@ -113,13 +162,43 @@ class AboutUs extends StatelessWidget {
                 ),
                 //   subtitle: Text('data'),
                 children: [
-                  Text(
-                    'Visual arts has always been one of the most powerful form of expression. When words fail to describe, art fills in the void. Team Footprints has been the platform to raise social issues by conducting Anti Ragging and BDC Poster Making Competitions to promote social issues, culminating art at its highest form.',
-                    style: GoogleFonts.lato(
-                      fontSize: 18,
+                  ExpansionTile(
+                    title: Text(
+                      'ANTI RAGGING',
+                      style: GoogleFonts.lato(fontSize: 16),
                     ),
-                    textAlign: TextAlign.center,
-                  )
+                    children: [
+                      Text(
+                        'Visual arts has always been one of the most powerful form of expression. When words fail to describe, art fills in the void. Team Footprints has been the platform to raise social issues by conducting Anti Ragging and BDC Poster Making Competitions to promote social issues, culminating art at its highest form.',
+                        style: GoogleFonts.lato(
+                          fontSize: 18,
+                        ),
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                  ),
+                  ExpansionTile(
+                    title: Text(
+                      'BLOOD DONATION',
+                      style: GoogleFonts.lato(fontSize: 16),
+                    ),
+                    children: [
+                      Text(
+                        'Visual arts has always been one of the most powerful form of expression. When words fail to describe, art fills in the void. Team Footprints has been the platform to raise social issues by conducting Anti Ragging and BDC Poster Making Competitions to promote social issues, culminating art at its highest form.',
+                        style: GoogleFonts.lato(
+                          fontSize: 18,
+                        ),
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                  ),
+                  // Text(
+                  //   'Visual arts has always been one of the most powerful form of expression. When words fail to describe, art fills in the void. Team Footprints has been the platform to raise social issues by conducting Anti Ragging and BDC Poster Making Competitions to promote social issues, culminating art at its highest form.',
+                  //   style: GoogleFonts.lato(
+                  //     fontSize: 18,
+                  //   ),
+                  //   textAlign: TextAlign.center,
+                  // )
                 ],
               ),
               ExpansionTile(
@@ -160,12 +239,25 @@ class AboutUs extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(4.0),
-                child: Text('G E T    I N    T O U C H ',
-                    style: GoogleFonts.ebGaramond(
-                        color: font,
-                        //  color: Colors.black,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w300)),
+                child: GlowText(
+                  'G E T    I N    T O U C H ',
+                  blurRadius: 1.0,
+                  offset: Offset(1, 3),
+                  glowColor: cyanLight,
+                  style: GoogleFonts.ebGaramond(
+                      //color: font,
+                      color: Colors.black,
+                      fontSize: 26,
+                      fontWeight: FontWeight.w300),
+                  textAlign: TextAlign.center,
+                ),
+
+                // Text('G E T    I N    T O U C H ',
+                //     style: GoogleFonts.ebGaramond(
+                //         color: Colors.blueGrey,
+                //         //  color: Colors.black,
+                //         fontSize: 24,
+                //         fontWeight: FontWeight.w300)),
               ),
               Divider(
                 thickness: 0,
