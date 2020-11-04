@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Footprints/models/Container.dart';
-import 'package:share/share.dart';
+import 'package:flutter/cupertino.dart';
 
 class Post extends StatefulWidget {
   @override
@@ -33,7 +33,7 @@ class _PostState extends State<Post> {
       postContainer(
         ctx: context,
         image: 'images/ll.jpg',
-        title: 'Jindgi',
+        title: 'Jindagi',
         type: 'Penned',
         captions:
             "इतना क्यों सिखाई जा रही हो जिंदगी हमें कौन से सदिया गुजारनी है यहां",

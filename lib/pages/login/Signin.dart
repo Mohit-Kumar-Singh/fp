@@ -89,11 +89,12 @@ class _SigninState extends State<Signin> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         circleAvatar(image: 'images/fp.png', radius: 40),
+                        Spacer(),
                         Form(
                           key: formKey,
                           child: Column(
                             children: [
-                              // TextFormField( 
+                              // TextFormField(
                               //   validator: (val) {
                               //     return val.isEmpty || val.length < 4
                               //         ? "enter valid username"
